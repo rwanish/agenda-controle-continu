@@ -31,7 +31,7 @@ public class Repetition {
      */
     public void addException(LocalDate date) {
         // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        //throw new UnsupportedOperationException("Pas encore implémenté");
     }
 
     /**

@@ -7,6 +7,9 @@ import java.util.*;
  * Description : An agenda that stores events
  */
 public class Agenda {
+    // Liste pour stocker les événements
+    private final List<Event> events = new ArrayList<>();
+
     /**
      * Adds an event to this agenda
      *
@@ -14,7 +17,10 @@ public class Agenda {
      */
     public void addEvent(Event e) {
         // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        //throw new UnsupportedOperationException("Pas encore implémenté");
+
+        // on ajoute event dans la liste
+        events.add(e);
     }
 
     /**
@@ -25,6 +31,13 @@ public class Agenda {
      */
     public List<Event> eventsInDay(LocalDate day) {
         // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        //throw new UnsupportedOperationException("Pas encore implémenté");
+        List<Event> eventsOnDay = new ArrayList<>();
+        for (Event e : events) {
+            if (e.isInDay(day)) {
+                eventsOnDay.add(e);
+            }
+        }
+        return eventsOnDay;
     }
 }

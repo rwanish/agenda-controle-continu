@@ -31,7 +31,8 @@ public class Termination {
      */
     public Termination(LocalDate start, ChronoUnit frequency, LocalDate terminationInclusive) {
         // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        //throw new UnsupportedOperationException("Pas encore implémenté");
+
     }
 
     /**

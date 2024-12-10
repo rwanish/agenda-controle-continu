@@ -1,2 +1,34 @@
 Ecrire ici votre réponse à la question UML.
 
+--FIGURE 3 : AUTRE MODELE UML--
+On peut observer que ce diagramme présentent quelques avantages.
+Par exemple, la classe Agenda contient une méthode addEvent qui permet d'ajouter des événements, ce qui répond directement à la première exigence.
+De plus, les événements peuvent être stockés sous forme d'instances de la classe Event ou de ses sous-classes.
+Ainsi, la classe RepetitiveEvent introduit une fréquence (ChronoUnit) et une méthode addException, permettant de modéliser des cas où certains jours doivent être exclus de la répétition.
+
+Un autre avantage serait les événements qui ont plusieurs jours.
+La méthode isInDay(aDay: LocalDate) dans Event permet de vérifier si un événement (potentiellement sur plusieurs jours) est actif pour une date donnée.
+Cette logique peut être réutilisée dans la méthode eventsInDay(day: LocalDate) de Agenda pour trouver tous les événements d'une journée spécifique.
+
+L'utilisation d'héritage (RepetitiveEvent, FixedTerminationEvent) permet aussi d'étendre facilement les types d'événements.
+
+Cependant, l'héritage peut entraîner une complexité dans le modèle.
+Par exemple, si des événements partagent des caractéristiques similaires mais ne nécessitent pas une spécialisation :
+RepetitiveEvent et FixedTerminationEvent pourraient être fusionnés en une seule classe avec des propriétés modifiables.
+En outre, un autre inconvénient serait que le diagramme UML ne détaille pas comment les événements sont stockés dans Agenda.
+Cela peut compliquer des opérations comme la recherche rapide d'événements sur une partie de dates.
+
+--FIGURE 2 : MODELE UML--
+Nous pouvons remarquer que ce diagramme présente quelques similarités avec l'autre diagramme.
+Ce diagramme se base sur la classe centrale Event qui possèdent des méthodes comme isInDay pour vérifier si un événement est actif un jour donné, et des setters pour gérer les répétitions et les terminaisons.
+Ainsi, il y a une spécialisation via la classe Repetition qui gère la fréquence, les exceptions de répétition et la terminaison (référence vers la classe Termination)
+De plus, il y a la classe Termination qui définit les règles pour la date de fin et le nombre d'occurrences.
+Et pour finir, la classe Agenda qui permet d'ajouter des évènements (via addEvent) et de récupérer les évènements d'une journée (avec eventIsDay).
+
+CONCLUSION
+Concernant la figure 3, elle utilise des sous-classes (RepetitiveEvent, FixedTerminationEvent) pour modéliser différents types d'événements.
+Cela permet une gestion séparée des comportements spécifiques, mais peut compliquer l'ajout de nouveaux types d'événements.
+
+Concernant la figure 2, elle utilise des relations d'association avec Repetition et Termination : on peut dire qu'elle est plus modulaire.
+Cette approche est plus flexible pour des extensions ou des changements futurs.
+
