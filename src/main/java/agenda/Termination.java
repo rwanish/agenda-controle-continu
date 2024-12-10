@@ -6,14 +6,30 @@ import java.time.temporal.Temporal;
 
 public class Termination {
 
+    private LocalDate start;
+    private ChronoUnit frequency;
+    private LocalDate terminationDateInclusive;
+    private long numberOfOccurrences;
+
+
     public LocalDate terminationDateInclusive() {
         // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        //throw new UnsupportedOperationException("Pas encore implémenté");
+        if (terminationDateInclusive == null) {
+            throw new IllegalStateException("La date de fin n'a pas été initialisée.");
+        }
+        return terminationDateInclusive;
+
     }
 
     public long numberOfOccurrences() {
         // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        //throw new UnsupportedOperationException("Pas encore implémenté");
+        if (numberOfOccurrences <= 0) {
+            throw new IllegalStateException("Le nombre d'occurrences n'a pas été initialisé.");
+        }
+        return numberOfOccurrences;
+
     }
 
 
@@ -32,7 +48,10 @@ public class Termination {
     public Termination(LocalDate start, ChronoUnit frequency, LocalDate terminationInclusive) {
         // TODO : implémenter cette méthode
         //throw new UnsupportedOperationException("Pas encore implémenté");
-
+        this.start = start;
+        this.frequency = frequency;
+        this.terminationDateInclusive = terminationInclusive;
+        //this.numberOfOccurrences = ChronoUnit.between(start, terminationInclusive) / frequency.getDuration().toDays();
     }
 
     /**
@@ -48,7 +67,22 @@ public class Termination {
      */
     public Termination(LocalDate start, ChronoUnit frequency, long numberOfOccurrences) {
         // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        //throw new UnsupportedOperationException("Pas encore implémenté");
+        this.start = start;
+        this.frequency = frequency;
+        this.numberOfOccurrences = numberOfOccurrences;
+        this.terminationDateInclusive = canCalculateNumberOfOccurrencesFromTerminationDate(start, frequency, numberOfOccurrences);
+    }
+
+    private LocalDate canCalculateNumberOfOccurrencesFromTerminationDate(LocalDate start, ChronoUnit frequency, long numberOfOccurrences) {
+        return start;
+    }
+
+    public LocalDate terminationDateExclusive() {
+        if (terminationDateInclusive == null) {
+            throw new IllegalStateException("La date de fin n'a pas été initialisée.");
+        }
+        return terminationDateInclusive;
     }
 
 }
