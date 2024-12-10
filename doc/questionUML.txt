@@ -25,7 +25,7 @@ Ainsi, il y a une spécialisation via la classe Repetition qui gère la fréquen
 De plus, il y a la classe Termination qui définit les règles pour la date de fin et le nombre d'occurrences.
 Et pour finir, la classe Agenda qui permet d'ajouter des évènements (via addEvent) et de récupérer les évènements d'une journée (avec eventIsDay).
 
-CONCLUSION
+--CONCLUSION--
 Concernant la figure 3, elle utilise des sous-classes (RepetitiveEvent, FixedTerminationEvent) pour modéliser différents types d'événements.
 Cela permet une gestion séparée des comportements spécifiques, mais peut compliquer l'ajout de nouveaux types d'événements.
 
